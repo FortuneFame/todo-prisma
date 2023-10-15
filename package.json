@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start:watch": "tsc -w",
-    "start:run": "nodemon ./build/server.js",
-    "start": "concurrently npm:start:*"
+    "start:watch": "tsc",
+    "start:run": "nodemon build/server.js",
+    "start": "npm run start:watch & npm run start:run"
   },
   "prisma": {
     "seed": "ts-node prisma/seed.ts"
