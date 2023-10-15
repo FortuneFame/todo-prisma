@@ -2,5 +2,5 @@
   "watch": ["build"],
   "ext": "js",
   "ignore": ["node_modules"],
-  "exec": "node build/server.js"
+  "exec": "node ./build/server.js"
 }
