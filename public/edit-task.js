@@ -13,16 +13,21 @@ const showTask = async () => {
     const {
       data: { task },
     } = await axios.get(`/api/v1/tasks/${id}`);
-    const { id: taskID, completed, name } = task;
 
-    taskIDDOM.textContent = taskID;
-    taskNameDOM.value = name;
-    tempName = name;
-    if (completed) {
-      taskCompletedDOM.checked = true;
-    }
+    taskIDDOM.textContent = task.id;
+    taskNameDOM.value = task.name_tasks;
+    taskCompletedDOM.checked = task.completed;
   } catch (error) {
-    console.log(error);
+    console.error(error);
+    if (error.response && error.response.status === 404) {
+      window.location.href = '/404.html';
+    }
+    else if (error.response && error.response.status === 400) {
+      window.location.href = '/404.html'; 
+    }
+    else {
+      alert('An error occurred. Please try again later.');
+    }
   }
 };
 
@@ -38,11 +43,11 @@ editFormDOM.addEventListener("submit", async (e) => {
     const {
       data: { task },
     } = await axios.patch(`/api/v1/tasks/${id}`, {
-      name: taskName,
+      name_tasks: taskName,
       completed: taskCompleted,
     });
 
-    const { id: taskID, completed, name } = task;
+    const { id: taskID, completed, name_tasks: name } = task;
 
     taskIDDOM.textContent = taskID;
     taskNameDOM.value = name;

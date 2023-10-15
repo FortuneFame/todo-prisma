@@ -15,26 +15,14 @@
     <link rel="stylesheet" href="./normalize.css" />
     <!-- main css -->
     <link rel="stylesheet" href="./main.css" />
-    <title>Task Manager</title>
+    <title>Error Page</title>
   </head>
   <body>
-    <form class="task-form">
-      <h4>Менеджер задач</h4>
-      <div class="form-control">
-        <input
-          type="text"
-          name="name_tasks"
-          class="task-input"
-          placeholder="наприклад, вивчити бекенд"
-        />
-        <button type="submit" class="btn submit-btn">Додати</button>
-      </div>
-      <div class="form-alert"></div>
-    </form>
-    <section class="tasks-container">
-      <p class="loading-text">Завантаження...</p>
-      <div class="tasks"></div>
-    </section>
+    <div class="error-content">
+        <h1>404 Not Found</h1>
+        <p>The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.</p>
+        <a href="/" class="return-home-btn">Return to Home Page</a>
+    </div>
     <!-- axios -->
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
@@ -42,6 +30,5 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-    <script src="./browser-app.js"></script>
   </body>
 </html>
